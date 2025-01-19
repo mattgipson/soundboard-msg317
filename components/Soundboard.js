@@ -13,7 +13,7 @@ const DEFAULT_SOUNDS = [
   { url: '/sounds/doh-windowz.wav', label: 'Ohdoh!', fullName: 'doh-windowz.wav' },
   { url: '/sounds/signing-ophdoze.wav', label: 'CUL8R', fullName: 'signing-ophdoze.wav' },
   { url: '/sounds/bellbong.wav', label: 'Bonggg', fullName: 'bellbong.wav' },
-  { url: '/sounds/s-and-s-ready.wav', label: 'Ready', fullName: 's-and-s-ready.wav' },
+  { url: '/sounds/s-and-s-READY.wav', label: 'Ready', fullName: 's-and-s-READY.wav' },
   { url: '/sounds/jumpman.wav', label: 'Jump Around', fullName: 'jumpman.wav' },
   { url: '/sounds/internet.wav', label: 'Internet', fullName: 'internet.wav' },
   { url: '/sounds/whammmmmmm.wav', label: 'Whammmmmmm', fullName: 'whammmmmmm.wav' },
