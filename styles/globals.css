@@ -7,59 +7,154 @@ body {
     background-size: 20px 20px;
     height:100%;
 }
-
-/* Neumorphic “container” look (replace Bulma’s .box if you want) */
-
+strong { font-weight:bold; }
+/* Audio visualizer container */
+.visualizer-wrapper {
+  display: inline-block;
+  padding: 1rem;
+  background: #14161a;
+  border-radius: 8px;
+  border:1px solid #444;
+  box-shadow: 8px 8px 16px #111, -8px -8px 16px #222;
+}
+.visualizer-wrapper canvas {
+  background-image:linear-gradient(to bottom, #222, #111);
+}
   
-  /* Our standard button style in a neumorphic theme */
-  .neumorphic-button {
-    padding: 1rem;
-    background: #111; /* a light gray base */
-    border-radius: 12px;
-    box-shadow: 8px 8px 16px #111, -8px -8px 16px #222;
-    transition: box-shadow 0.2s ease;
-    border:1px solid #222;
-    width:100%;
-  }
+/* The canvas inside it */
+.audio-visualizer-canvas {
+  background-color: #222;
+  border-radius: 4px;
+  display: block;
+  margin: 0 auto;
+}
+
+/* VISUALIZER UI */
+.visualizer-wrapper {
+  padding:20px;
+  width:auto;
+  background:#111;
+  display: inline-block;
+  border-radius: 6px;
   
-  /* “Pressed” state — create an inset box-shadow to simulate being pushed in */
-  .neumorphic-button.pressed {
-    box-shadow: inset 6px 6px 12px #111, inset -6px -6px 12px #000 !important;
-    transform: translateY(2px); /* subtle shift to look pressed */
+}
+.visualizer-wrapper .visualizer-feedback {
+  font-size:12px;
+  display:block;
+  padding:5px 20px;
+  background:#222;
+  border-radius: 3px;
+  color:limegreen;
+  transition:all 0.6s ease;
+  border-bottom:1px solid #333;
+  font-family: monospace, monospace;
+
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    /*box-shadow: 0 0 8px rgba(0, 255, 0, 0.2), inset 0 0 8px rgba(0, 255, 0, 0.2);*/
   }
-
-  /* Audio visualizer container */
-.audio-visualizer-container {
-    display: inline-block;
-    padding: 1rem;
-    background: #14161a;
-    border-radius: 8px;
-    border:1px solid #333;
-    box-shadow: 8px 8px 16px #111, -8px -8px 16px #222;
+  50% {
+    transform: scale(1.1);
+    /*box-shadow: 0 0 16px rgba(0, 255, 0, 0.4), inset 0 0 16px rgba(0, 255, 0, 0.4);*/
   }
-  
-  /* The canvas inside it */
-  .audio-visualizer-canvas {
-    background-color: #222;
-    border-radius: 4px;
-    display: block;
-    margin: 0 auto;
-  }
+}
+
+/* Default state */
+.at3k-speaker-wrapper {
+  animation: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Active state */
+.at3k-speaker-wrapper.is-pulsing {
+  animation: pulse 0.8s infinite ease-in-out;
+}
+
+.at3k-visualizer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* speaker visual */
+.at3k-speaker-wrapper {
+  height:100px;
+  width:100px;
+  border-radius:50px;
+  border:2px solid #111;
+  display:block;
+  position:relative;
+  background-image:linear-gradient(to bottom, #333, #111);
+  box-shadow: 0 2px 10px rgba(0,0,0,.5);
+}
+.at3k-speaker {
+  height:80px;
+  width:80px;
+  border-radius:50px;
+  border:2px solid #333;
+  display:block;
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-image:linear-gradient(to bottom, #111, #333);
+}
+.at3k-speaker-outer {
+  height:46px;
+  width:46px;
+  border-radius:50px;
+  border:2px solid #222;
+  display:block;
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-image:linear-gradient(to bottom, #333, #111);
+}
+.at3k-speaker-middle {
+  height:34px;
+  width:34px;
+  border-radius:50px;
+  border:2px solid #222;
+  display:block;
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-image:linear-gradient(to bottom, #111, #444);
+}
+.at3k-speaker-inner {
+  height:20px;
+  width:20px;
+  border-radius:50px;
+  border:2px solid #222;
+  display:block;
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-image:linear-gradient(to bottom, limegreen, #105410);
+}
 
 
-
-  /* We have a "sound-button" class for easy targeting: */
+/* We have a "sound-button" class for easy targeting: */
 .sound-button {
     border-radius: 6px !important; /* override Bulma's default if you like */
     box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
     transition: transform 0.1s ease, box-shadow 0.1s ease;
     cursor: pointer;
+    border-top:2px solid #444!important;
+    border-bottom:4px solid rgba(0,0,0,0.2)!important;
   }
   
   /* On hover, a subtle lift */
-  .sound-button:hover {
-    transform: translateY(-2px);
+  .sound-button:hover,
+  .sound-button.pressed {
+    transform: translateY(4px);
     box-shadow: 4px 4px 8px rgba(0,0,0,0.2);
+    border-top-color:#555!important;
   }
   
   /* "Pressed" effect for isActive or on click */
@@ -81,88 +176,32 @@ body {
   /* .sound-button-key, .sound-button-file (these are optional classes you can refine) */
   .sound-button-key {
     margin-bottom: 0.25rem;
+    text-shadow: 0 03px 8px rgba(0,0,0,.5), 0 3px 6px rgba(255,255,255,.25)
+    ;
   }
   
-  .sound-button-file {
-    color: #555;
-  }
-  
-  .soundboard-instructions {
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .soundboard-buttons {
-    margin-top: 1rem;
-  }
+.sound-button:hover .sound-button-key {
+  color: #fff !important;;
+}
 
-  .soundboard-buttons {
-    max-width:none!important;
-  }
+.sound-button-file {
+  color: #777;
+}
 
-  .current-filename {
-    font-size: 0.8rem;
-    text-align: center;
-    color: #ccc;
-  }
+.soundboard-instructions {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
 
+.soundboard-buttons {
+  margin-top: 1rem;
+}
 
+.soundboard-buttons {
+  max-width:none!important;
+}
 
-
-  .soundboard-layout {
-    display: flex;
-    min-height: 100vh;
-  }
-  
-  /* Sidebar styling */
-  .sidebar {
-    width: 350px;
-    background: #222;
-    border-right: 1px solid #111;
-    padding: 2rem 3rem 2rem 2rem;
-    position: relative; /* so the close button sits inside */
-    transition: transform 0.3s ease;
-  }
-  
-  .sidebar.is-open {
-    transform: translateX(0);
-    display:block;
-  }
-  
-  .sidebar {
-    transform: translateX(-100%); /* hidden by default, if you want that approach */
-    display: none;
-  }
-  
-  /* However, we set it open by default in code, 
-     so if you want it open initially, you might do:
-  */
-  .sidebar.is-open {
-    transform: translateX(0);
-  }
-  
-  /* Sidebar header */
-  .sidebar-header {
-    margin-bottom: 1rem;
-    position: relative;
-  }
-  
-  .sidebar-close-btn {
-    position: absolute;
-    top: 0rem;
-    right: -1.5rem;
-  }
-  
-  /* Main content area, flex grows to fill space */
-  .main-content {
-    flex: 1;
-    transition: margin-left 0.3s ease;
-  }
-  
-  /* If the sidebar is open, we can push main content to the right: 
-     But if you prefer an "overlay" sidebar, you can skip adjusting content. */
-
-
-  .toggle-sidebar-btn {
-    position:absolute;
-  }
+.soundboard-layout {
+  display: flex;
+  min-height: 100vh;
+}
