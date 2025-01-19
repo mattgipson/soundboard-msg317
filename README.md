@@ -1,4 +1,4 @@
-# Soundboard App
+# Audiotron3000 Soundboard App
 
 A **React/Next.js** project featuring a customizable soundboard with a **retro audio visualizer**. It allows users to drag-and-drop audio files onto a fully mapped QWERTY keyboard, then play sounds via mouse clicks or keystrokes. The equalizer provides a **Winamp-style** bouncy animation with peak caps and neon aesthetics.
 
@@ -63,6 +63,16 @@ A **React/Next.js** project featuring a customizable soundboard with a **retro a
 - Make sure your audio file paths match your setup (by default, files go in public/sounds/).
 - The equalizer uses the Web Audio API; it may remain silent if the browser’s audio context is blocked (common until user interaction).
 - For multi-sound overlap or single-sound mode, modify the handlePlay logic in Soundboard.js.
+
+## Roadmap
+
+- Refactor CSS (change to SCSS, add variables and tokens for better themeing)
+- Improve visualizer design/function and Speakers animations
+- Improve UI
+- Extend audio options with UI toggles (TBD)
+- Host a demo for this project
+- Make visuazlier easier to theme 
+- Much more TBD
 
 ## License
 
