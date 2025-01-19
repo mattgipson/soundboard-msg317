@@ -197,10 +197,11 @@ export default function Soundboard() {
   return (
     <div style={{ textAlign: 'center', padding: '2rem' }}>
       {!audioContextReady && (
-        <div style={{ marginBottom: '2rem' }}>
+        <div style={{ marginBottom: '2rem', marginTop: '2rem' }}>
           <button
             onClick={initializeAudioContext}
             style={{ padding: '10px 20px', fontSize: '1.2rem' }}
+            className=' start-button'
           >
             Start Soundboard
           </button>

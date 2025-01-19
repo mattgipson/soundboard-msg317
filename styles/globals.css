@@ -205,3 +205,20 @@ strong { font-weight:bold; }
   display: flex;
   min-height: 100vh;
 }
+
+
+.start-button {
+  color:#ff5cc1;
+  padding:10px 25px;
+  border:1px solid limegreen;
+  background:#111;
+  text-transform: uppercase;
+  border-radius: 4px;
+  box-shadow: 0px 2px 6px rgba(0,0,0,0.4);
+}
+.start-button:hover {
+  background:#111;
+  color:limegreen;
+  border-color:#ff5cc1;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.75);
+}

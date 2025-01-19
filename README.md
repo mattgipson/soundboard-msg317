@@ -69,6 +69,7 @@ A **React/Next.js** project featuring a customizable soundboard with a **retro a
 ## Roadmap
 
 - Refactor CSS (change to SCSS, add variables and tokens for better themeing)
+- Replace "start soundboard" button with better solution
 - Improve visualizer design/function and Speakers animations
 - Improve UI
 - Extend audio options with UI toggles (TBD)
