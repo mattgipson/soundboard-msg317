@@ -15,7 +15,7 @@ strong { font-weight:bold; }
   background: #14161a;
   border-radius: 8px;
   border:1px solid #444;
-  box-shadow: 8px 8px 16px #111, -8px -8px 16px #222;
+  box-shadow: 0px 8px 16px #111;
 }
 .visualizer-wrapper canvas {
   background-image:linear-gradient(to bottom, #222, #111);

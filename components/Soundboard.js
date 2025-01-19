@@ -13,8 +13,14 @@ const DEFAULT_SOUNDS = [
   { url: '/sounds/doh-windowz.wav', label: 'Ohdoh!', fullName: 'doh-windowz.wav' },
   { url: '/sounds/signing-ophdoze.wav', label: 'CUL8R', fullName: 'signing-ophdoze.wav' },
   { url: '/sounds/bellbong.wav', label: 'Bonggg', fullName: 'bellbong.wav' },
+  { url: '/sounds/s-and-s-ready.wav', label: 'Ready', fullName: 's-and-s-ready.wav' },
   { url: '/sounds/jumpman.wav', label: 'Jump Around', fullName: 'jumpman.wav' },
-  { url: '/sounds/internet.wav', label: 'Internet', fullName: 'internet.wav' }
+  { url: '/sounds/internet.wav', label: 'Internet', fullName: 'internet.wav' },
+  { url: '/sounds/whammmmmmm.wav', label: 'Whammmmmmm', fullName: 'whammmmmmm.wav' },
+  { url: '/sounds/drum-clap.wav', label: 'Clap', fullName: 'drum-clap.wav' },
+  { url: '/sounds/drum-tsss.wav', label: 'Tssssk', fullName: 'drum-tsss.wav' },
+  { url: '/sounds/s-and-s-M.wav', label: 'M', fullName: 's-and-s-M.wav' }
+  
 ];
 
 function removeFileExtension(filename) {
