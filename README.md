@@ -1,5 +1,7 @@
 # Audiotron3000 Soundboard App
 
+![alt text](https://github.com/mattgipson/soundboard-msg317/blob/main/public/images/soundboard-screenshot.png?raw=true)
+
 A **React/Next.js** project featuring a customizable soundboard with a **retro audio visualizer**. It allows users to drag-and-drop audio files onto a fully mapped QWERTY keyboard, then play sounds via mouse clicks or keystrokes. The equalizer provides a **Winamp-style** bouncy animation with peak caps and neon aesthetics.
 
 ---
